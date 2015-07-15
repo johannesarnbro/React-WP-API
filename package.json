@@ -1,0 +1,43 @@
+{
+  "name": "wordpress-and-react-boilerplate",
+  "version": "0.1.0",
+  "description": "ES6 Boilerplate with Babel and Webpack",
+  "main": "app.js",
+  "scripts": {
+    "clean": "rm -rf node_modules && npm install",
+    "dev": "node server.dev.js",
+    "start": "node server.js",
+    "build": "webpack --config webpack.config.prod --progress --colors -p",
+    "test": "eslint sourcecode"
+  },
+  "author": "Jan Jarfalk",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^5.5.8",
+    "babel-core": "^5.5.8",
+    "babel-eslint": "^3.1.23",
+    "babel-loader": "^5.1.4",
+    "eslint": "^0.24.1",
+    "eslint-plugin-react": "^2.5.2",
+    "extract-text-webpack-plugin": "^0.3.8",
+    "git-hooks": "0.0.10",
+    "node-libs-browser": "^0.5.2",
+    "react-hot-loader": "^1.2.8",
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "dependencies": {
+    "babel-runtime": "^5.5.8",
+    "chroma-js": "^1.0.1",
+    "compression": "^1.5.0",
+    "express": "^4.13.0",
+    "immutable": "^3.7.4",
+    "mcfly": "0.0.10",
+    "react": "^0.14.0-beta1",
+    "react-dom": "^0.14.0-beta1",
+    "react-router": "^1.0.0-beta3",
+    "redux": "^0.11.1",
+    "whatwg-fetch": "^0.9.0",
+    "xhr": "^2.0.2"
+  }
+}
