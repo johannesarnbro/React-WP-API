@@ -3,9 +3,9 @@
 const config = {};
 
 config.wordpress = {
-  hostname: 'http://178.62.101.215',
+  hostname: 'http://cloudnine.web:8888',
   wpJSONEndpoint: '/wp-json',
-  cacheTime: 60 * 60 * 24,
+  cacheTime: 60,
   primaryNavigationID: 2,
 };
 

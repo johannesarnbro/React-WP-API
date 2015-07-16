@@ -2,38 +2,38 @@ import mcFly from '../flux/mcFly';
 import actionTypes from '../constants/actionTypes.js';
 import Immutable from 'immutable';
 
-let posts = Immutable.fromJS([]);
+let blogPosts = Immutable.fromJS([]);
 
 function reset(data) {
-  posts = data;
+  blogPosts = data;
 }
 
-const PostStore = mcFly.createStore({
+const BlogStore = mcFly.createStore({
   getAll: function () {
-    return posts;
+    return blogPosts;
   },
 }, function (payload) {
 
-  const _posts = posts;
+  const _blogPosts = blogPosts;
 
   switch (payload.actionType) {
 
-    case actionTypes.POST_INDEX_FETCH_SUCCESS:
+    case actionTypes.BLOG_FETCH_SUCCESS:
       reset(payload.data);
       break;
 
-    case actionTypes.POST_INDEX_FETCH_FAIL:
+    case actionTypes.BLOG_FETCH_FAIL:
       break;
 
     default:
       return true;
   }
 
-  if (_posts !== posts) {
-    PostStore.emitChange();
+  if (_blogPosts !== blogPosts) {
+    BlogStore.emitChange();
   }
 
   return true;
 });
 
-export default PostStore;
+export default BlogStore;

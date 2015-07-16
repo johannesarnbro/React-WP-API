@@ -2,7 +2,7 @@
 
 import React from 'react';
 import chroma from 'chroma-js';
-import Blog from './Blog.js';
+import Page from './Page.js';
 import SiteStore from '../stores/SiteStore.js';
 import SiteHeader from './SiteHeader.js';
 
@@ -49,11 +49,17 @@ class App extends React.Component {
       },
     };
 
+    const pageProps = {
+      params: {
+        slug: 'home',
+      },
+    };
+
     return (
       <div style={styles.base}>
         <div style={styles.center}>
           <SiteHeader />
-          {this.props.children || <Blog />}
+          {this.props.children || <Page {...pageProps} />}
         </div>
       </div>
     );

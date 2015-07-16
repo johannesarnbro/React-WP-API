@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 
 class MenuItem extends React.Component {
 
-  render() {
+  render () {
 
     const URI = this.props.slug;
     const label = this.props.title;
@@ -27,7 +27,7 @@ class MenuItem extends React.Component {
       activeLink: {
         borderTop: '3px solid #000000',
       },
-      siteID: {
+      title: {
         display: 'block',
         fontSize: '13px',
         fontWeight: 'bold',
@@ -46,12 +46,23 @@ class MenuItem extends React.Component {
       activeStyle: styles.activeLink,
     };
 
+    let link;
+
+    if (linkProps.to.slice(0, 1) === '/') {
+      link = <Link {...linkProps}>
+        <span style={styles.title}>{label}</span>
+        <span style={styles.description}>{description}</span>
+      </Link>
+    } else {
+      link = <a href={linkProps.to} style={linkProps.style}>
+        <span style={styles.title}>{label}</span>
+        <span style={styles.description}>{description}</span>
+      </a>
+    }
+
     return (
       <li style={styles.base}>
-        <Link {...linkProps}>
-          <span style={styles.siteID}>{label}</span>
-          <span style={styles.description}>{description}</span>
-        </Link>
+        {link}
       </li>
     );
   }

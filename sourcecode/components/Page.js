@@ -1,47 +1,44 @@
-'use strict';
-
 import React from 'react';
 import PageStore from '../stores/PageStore';
 import PageActions from '../actions/PageActions.js';
 import SiteActions from '../actions/SiteActions.js';
 import createMarkup from '../utils/createMarkup.js';
 
-
 class Page extends React.Component {
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = this.getState(props);
     this.onPageStoreChange = this.onPageStoreChange.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount () {
     PageStore.addListener('change', this.onPageStoreChange);
     PageActions.fetchBySlug(this.props.params.slug);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     PageStore.removeListener('change', this.onPageStoreChange);
   }
 
-  componentWillReceiveProps(props) {
+  componentWillReceiveProps (props) {
     this.setState(this.getState(props));
     PageActions.fetchBySlug(props.params.slug);
   }
 
-  onPageStoreChange() {
+  onPageStoreChange () {
     const props = this.props;
     this.setState(this.getState(props));
   }
 
-  getState(props) {
+  getState (props) {
     const slug = props.params.slug;
     return {
       page: PageStore.getPageBySlug(slug),
     };
   }
 
-  render() {
+  render () {
 
     const page = this.state.page;
     if (!page) {

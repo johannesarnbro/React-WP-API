@@ -62,8 +62,4 @@ class Menu extends React.Component {
 
 }
 
-Menu.propTypes = {
-  pages: React.PropTypes.object,
-};
-
 export default Menu;
